@@ -1,6 +1,12 @@
-public struct LogStore {
-    public private(set) var text = "Hello, World!"
+import Foundation
 
-    public init() {
-    }
+public struct LogStore {
+    static var log: [String] = []
+}
+
+public func printLog(_ logString: String) {
+    print(logString)
+    
+    let timestamp = Utilities.getTimestamp()
+    LogStore.log.append("\(timestamp): \(logString)")
 }
